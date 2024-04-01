@@ -1,0 +1,105 @@
+[MUSIC] Welcome to load balancing and
+high availability. After watching this video, you'll be able
+to state benefits of load balancing. Explain the importance of load
+balancing and high availability. Describe different load
+balancing techniques. Explain how to implement load
+balancing in node applications. Explain high availability strategies for
+node applications. Explain techniques and strategies for
+application resilience and fault recovery. Load balancing involves the distribution
+of incoming network traffic across multiple servers to ensure
+optimal resource utilization, increased reliability,
+and improved performance. It helps prevent any single server from
+becoming overwhelmed with requests, reducing downtime and
+improving the overall user experience. High availability refers to
+the ability of a system to operate even when some
+of its components fail. It involves designing the system in such a
+way that it can automatically recover from failures, ensuring uninterrupted
+service availability. Node handles concurrent
+connections efficiently, however, as concurrent connections increase in
+a single node, it may become a bottleneck. Load balancing allows you to distribute
+incoming requests across multiple nodes, enabling horizontal scaling and
+improved performance. High availability ensures that
+even if one or more nodes fail, the application remains
+accessible to users. You implement high availability
+strategies to minimize downtime and provide a seamless user experience. Load balancing algorithms determine how
+incoming requests are distributed across server instances. Different algorithms are suitable for
+different scenarios. Round-robin load balancing distributes
+requests equally across server instances in a cyclic manner. This technique ensures a fair
+distribution of request, but does not take server load into account. The least connection load balancing
+technique ensures that heavily loaded servers receive fewer requests,
+allowing them to recover faster. IP hash load balancing assigns requests
+based on the client's IP address. Requests from the same IP address are
+consistently routed to the same server. This technique maintains
+session persistence. Session persistence ensures that
+the user sessions are maintained on the same server instance
+throughout their duration. Sticky sessions assign each
+user's request to the same server based on a server identifier stored
+in cookies or URL parameters. To set up a basic load
+balancer using node, you can use libraries like HTTP proxy or
+node HTTP proxy. These libraries allow us to create
+a reverse proxy that distributes incoming requests across multiple backend servers. Here is an example code for setting
+up a basic load balancer using node. Here, the line const addresses
+declare an array called addresses that holds the dummy server addresses that
+the proxy will distribute requests. Reverse proxies like Nginx and HaProxy offload the task of load
+balancing from node servers. They act as intermediaries between
+clients and backend servers, distributing incoming requests
+based on predefined rules. Here's an example of Nginx
+configuration for load balancing. To configure Nginx as a reverse proxy for
+load balancing, you define upstream servers and configure
+the load balancing algorithm using directories like upstream and proxy pass. Similarly, HaProxy provides
+configuration options for load balancing using backend servers. Load balancing strategies vary based
+on the type of node application being deployed. For HTTP-based applications,
+simple round-robin or least connection load
+balancing may suffice. However, for WebSocket applications
+that require sticky sessions or session persistence, IP hash or sticky
+session techniques are more appropriate. It is important to analyze the
+requirements of your specific application and choose the most suitable load
+balancing strategy accordingly. High availability involves designing
+systems that can withstand component failure and
+continue to provide uninterrupted service. It requires redundancy at various levels, fault tolerance mechanisms, and
+efficient recovery strategies. Designing for high availability in node
+applications involves architectural considerations such as redundancy, deploying multiple nodes to ensure
+availability even when some nodes fail. Fault tolerance,
+implementing mechanisms to detect and recover from failures automatically. Data replication, replicating
+data across multiple instances or databases to ensure availability. Elasticity, designing applications that
+can scale dynamically based on demand. To implement fault tolerance and
+redundancy in node applications, consider the following techniques. Cluster module, the built in cluster
+module in node allows you to create a cluster of worker processes
+that can share the same port and handle incoming requests efficiently. Process monitoring, monitoring tools
+like PM tool can automatically restart failed instances or scale up and
+down based on resource usage thresholds. Load balancers, using load balancers
+ensures that even if some instances fail, the application remains accessible
+through other healthy instances. Distributed caching manages session
+data across multiple instances in a high availability setup. You ensure session persistence even
+if the individual nodes fail to store session data in a distributed
+cache like Redis or Memcached. We can ensure session persistence
+even if individual nodes fail. Implementing health checks and
+failure detection mechanisms, health checks involve periodically
+checking the status of various application stack components to
+ensure they function correctly. Failure detection mechanisms detect
+failures or anomalies in real time by monitoring system metrics or
+using heartbeat-based techniques. Graceful shutdown and restart strategies, graceful shutdown allows
+existing connections or transactions to be completed before
+shutting down the application gracefully. Graceful restart strategies involve
+restarting an application without causing downtime or service interruptions. Handling session persistence during
+node failures, during node failures, you should ensure session persistence
+is to maintain a good user experience. Techniques such as distributed caching,
+as discussed earlier, or sharing session state
+across multiple instances, help achieve session persistence
+during node failures. Disaster recovery planning and strategies,
+disaster recovery planning involves preparing for unexpected events that may
+cause service interruptions or data loss. Strategies include regular
+backups of critical data, redundant infrastructure deployments
+across geographically distinct regions or data centers, and
+well-defined recovery procedures. In this video, you learned about load
+balancing and high availability. Incoming requests are distributed
+across server instances using a load-balancing algorithm. Load balancing algorithms such as
+round-robin, least connection, IP hash, and session persistence and sticky
+sessions help to distribute incoming requests across multiple node instances. Define the upstream servers and configure the load balancing algorithm
+to configure reverse proxies like Nginx. High availability allows the design of
+systems that can withstand component failures and
+continue to provide uninterrupted service. Use high availability strategies
+such as redundancy, fault tolerance, data replication, and elasticity
+to provide uninterrupted service. Apply techniques like cluster modules,
+process monitoring, and load balancers to implement fault tolerance and
+redundancy in node applications.
